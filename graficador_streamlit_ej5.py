@@ -32,6 +32,7 @@ if ejercicio == "Ejercicio 5: Blanca y Nieves":
     grid_points = st.number_input("Puntos (grid):", min_value=100, max_value=10000, value=1500, step=100)
     utility_model = st.selectbox("Función de utilidad:", ["sqrt", "log1p", "crra"], index=0)
 
+
     def u_sqrt(y):
         return np.sqrt(np.maximum(y, 0.0))
 
@@ -73,6 +74,7 @@ if ejercicio == "Ejercicio 5: Blanca y Nieves":
         i_r = int(np.argmax(welfare_rawls))
         return (uB[i_u], uN[i_u]), (uB[i_r], uN[i_r])
 
+    # Validación y lógica SOLO dentro del bloque Ejercicio 5
     if total_renta < 0:
         st.error("TOTAL_RENTA debe ser no negativa.")
     elif cost_ratio <= 0:
